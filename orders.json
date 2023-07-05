@@ -1,0 +1,15 @@
+[
+    {
+      "order_id": 1,
+      "customer_name": "John Doe",
+      "dish_ids": [1, 2, 3],
+      "status": "received"
+    },
+    {
+      "order_id": 2,
+      "customer_name": "Jane Smith",
+      "dish_ids": [2, 4],
+      "status": "preparing"
+    }
+  ]
+  

@@ -1,0 +1,51 @@
+[
+    {
+        "img": "https://t4.ftcdn.net/jpg/04/54/35/37/240_F_454353705_dLtoZNlC3RBudcg7OUBnlPTx36j5661S.jpg",
+        "name": "Panipuri",
+        "price": "40",
+        "availability": true,
+        "dish_id": "4436453b-cbc0-47aa-9014-97ec0727a9c8"
+    },
+    {
+        "img": "https://media.istockphoto.com/id/1292635321/photo/veg-steam-momo-nepalese-traditional-dish-momo-stuffed-with-vegetables-and-then-cooked-and.jpg?s=612x612&w=0&k=20&c=NyxQvDnBq7Ki09Zi21JEMxpuZ_uVr45ZBSavqXJ2T1s=",
+        "name": "Momos",
+        "price": "50",
+        "availability": true,
+        "dish_id": "c7ba8382-3708-43a0-8146-ac6fa117453e"
+    },
+    {
+        "img": "https://media.istockphoto.com/id/1334115358/photo/cabbage-manchurian.jpg?s=612x612&w=0&k=20&c=lZvW1lWr03mQszDbx4v59IAnxWacQ_Ti275hjj18hcE=",
+        "name": "Manchurian",
+        "price": "99",
+        "availability": true,
+        "dish_id": "031912f3-f71b-4275-8da2-a39e351626a2"
+    },
+    {
+        "img": "https://media.istockphoto.com/id/1411786526/photo/rasmalai.jpg?s=612x612&w=0&k=20&c=0WzEpwBAmZ6HoiAdH5h1MywksKDVlIotntUj8e2wxz0=",
+        "name": "Rasmalai",
+        "price": "120",
+        "availability": true,
+        "dish_id": "be49381e-b852-4450-9bd9-3c87c3815511"
+    },
+    {
+        "img": "https://media.istockphoto.com/id/657076530/photo/rajwari-or-rajwadi-sweet-kesar-badam-pista-kulfi-or-ice-cream-candy.jpg?s=612x612&w=0&k=20&c=JpWnIZLvtlaYKVcIrVX1A1lVVdixYAyxuCuiXQOsdzc=",
+        "name": "Kulfi",
+        "price": "200",
+        "availability": true,
+        "dish_id": "410b9d46-bd06-4388-9791-68812c7f5b25"
+    },
+    {
+        "img": "https://media.istockphoto.com/id/485040276/photo/herb-omelette-with-chives-and-oregano.jpg?s=612x612&w=0&k=20&c=gWzwd_-neHOmCgirxaaGCwEJElbuYPzY917oWPWp6kI=",
+        "name": "Omlette",
+        "price": "80",
+        "availability": false,
+        "dish_id": "f0e61395-177a-4d7f-95ef-afba1376e477"
+    },
+    {
+        "img": "https://t3.ftcdn.net/jpg/02/45/45/62/240_F_245456223_CrK1J9ePGfc1UW2QncGmFfycpI3vFnxI.jpg",
+        "name": "Cake",
+        "price": "500",
+        "availability": true,
+        "dish_id": "35ae546a-9001-40f9-90cd-ef83d7729643"
+    }
+]
