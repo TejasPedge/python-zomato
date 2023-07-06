@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flask-SocketIO Example</title>
+  <script src="//code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+      var socket = io.connect('http://' + document.domain + ':' + location.port);
+      
+      socket.on('connect', function() {
+        socket.send('Hello, server!');
+      });
+      
+      socket.on('response', function(data) {
+        console.log('Received: ' + data);
+      });
+
+      socket.on('status_update', function(data) {
+        $('#status').text(data.status);
+      });
+
+      $('#updateStatusBtn').click(function() {
+        var status = { status: true };
+        socket.emit('update_status', status.status);
+        console.log('Sent status update:', status);
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Flask-SocketIO Example</h1>
+  <p>Status: <span id="status">{{ status.status }}</span></p>
+  <button id="updateStatusBtn">Update Status</button>
+</body>
+</html>
