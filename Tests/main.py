@@ -1,4 +1,3 @@
-
 from dotenv import dotenv_values
 env_vars = dotenv_values('.env')
 import os
@@ -93,6 +92,179 @@ def update_order_status(order_id):
 # Start the Flask application
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+# Socket Logic
+
+
+# import openai
+# from dotenv import dotenv_values
+# from flask import Flask, jsonify
+# from flask_cors import CORS
+# from flask_socketio import SocketIO, emit
+# from pymongo import MongoClient
+# import uuid
+
+# app = Flask(__name__)
+# CORS(app)
+# app.config['SECRET_KEY'] = 'secret'
+# socketio = SocketIO(app, cors_allowed_origins='*')
+
+# # MongoDB Atlas connection details
+# env_vars = dotenv_values('.env')
+# MONGO_URI = env_vars['MONGO_URI']
+# DB_NAME = 'ZappyAroma'
+# MENU_COLLECTION = 'menu'
+# ORDERS_COLLECTION = 'orders'
+
+# # MongoDB client
+# client = MongoClient(MONGO_URI)
+# db = client[DB_NAME]
+# menu_collection = db[MENU_COLLECTION]
+# orders_collection = db[ORDERS_COLLECTION]
+
+# # OpenAI API credentials
+# openai.api_key = env_vars['OPENAI_APIKEY']
+
+# # Routes for managing the menu
+# @socketio.on('get_menu')
+# def get_menu():
+#     try:
+#         menu = list(menu_collection.find())
+#         emit('menu', menu)
+#     except Exception as e:
+#         error_message = str(e)
+#         emit('menu_error', error_message)
+
+
+# @socketio.on('add_dish')
+# def add_dish(dish):
+#     dish['_id'] = str(uuid.uuid4())
+#     menu_collection.insert_one(dish)
+#     menu = list(menu_collection.find())
+#     emit('dish_added', {'message': 'Dish added successfully'})
+#     emit('menu', menu)
+
+
+# @socketio.on('remove_dish')
+# def remove_dish(dish_id):
+#     result = menu_collection.delete_one({'_id': dish_id})
+#     if result.deleted_count == 1:
+#         emit('dish_removed', {'message': 'Dish removed successfully'}, broadcast=True)
+#     else:
+#         emit('dish_not_found', {'message': 'Dish not found'}, broadcast=True)
+
+# @socketio.on('update_dish_availability')
+# def update_dish_availability(data):
+#     dish_id = data['dish_id']
+#     update_data = data['update_data']
+#     result = menu_collection.update_one({'_id': dish_id}, {'$set': update_data})
+#     if result.modified_count == 1:
+#         emit('dish_availability_updated', {'message': 'Dish availability updated'}, broadcast=True)
+#     elif result.matched_count == 1:
+#         emit('no_changes_made', {'message': 'No changes made to dish availability'}, broadcast=True)
+#     else:
+#         emit('dish_not_found', {'message': 'Dish not found'}, broadcast=True)
+
+# # Routes for managing orders
+# @socketio.on('place_order')
+# def place_order(order):
+#     for dish_id in order['dish_ids']:
+#         dish = menu_collection.find_one({'_id': dish_id, 'availability': 'yes'})
+#         if dish:
+#             orders_collection.insert_one({
+#                 'order_id': str(uuid.uuid4()),
+#                 'customer_name': order['customer_name'],
+#                 'dish_id': dish_id,
+#                 'status': 'received'
+#             })
+#         else:
+#             emit('dish_not_available', {"message": f"Dish {dish_id} is not available"}, broadcast=True)
+#             return
+#     emit('order_placed', {"message": "Order placed successfully"}, broadcast=True)
+
+# @socketio.on('update_order_status')
+# def update_order_status(data):
+#     order_id = data['order_id']
+#     status = data['status']
+#     orders_collection.update_one({'order_id': order_id}, {'$set': {'status': status}})
+#     emit('order_status_updated', {"message": "Order status updated"}, broadcast=True)
+
+# # Start theFlask application with SocketIO:
+
+
+# if __name__ == '__main__':
+#     socketio.run(app, debug=True)
+
+
+# # Set up your OpenAI API credentials
+# openai.api_key = env_vars['OPENAI_APIKEY']
+
+# # Define a function to interact with the chatbot
+# def chat_with_bot(message):
+#     response = openai.Completion.create(
+#         engine='text-davinci-003',
+#         prompt=message,
+#         max_tokens=50,
+#         temperature=0.7,
+#         n=1,
+#         stop=None,
+#         timeout=5
+#     )
+#     return response.choices[0].text.strip()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
